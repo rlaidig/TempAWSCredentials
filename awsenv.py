@@ -2,6 +2,7 @@
 
 import fileinput
 import json
+# import dateutil.parser
 
 def getInput():
     arg = ""
@@ -13,7 +14,7 @@ def getCreds(creds):
     return {
         "AWS_ACCESS_KEY_ID": creds['AccessKeyId'],
         "AWS_SECRET_ACCESS_KEY": creds["SecretAccessKey"],
-        "AWS_SESSION_TOKEN": creds['SessionToken']
+        "AWS_SESSION_TOKEN": creds['SessionToken'],
     }
 
 # Press the green button in the gutter to run the script.
@@ -24,3 +25,7 @@ if __name__ == '__main__':
 
     for key, value in creds.items():
         print("export {}={}".format(key,value))
+
+    # expire = dateutil.parser.isoparse(json.loads(arg)['Credentials']['Expiration'])
+    # local = expire.astimezone(dateutil.tz.gettz())
+    # print('echo "Credentials expire {}"'.format(local))
