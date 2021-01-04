@@ -22,10 +22,12 @@ if __name__ == '__main__':
     arg = getInput()
 
     creds = getCreds(json.loads(arg)['Credentials'])
-
+#    str = ""
     for key, value in creds.items():
         print("export {}={}".format(key,value))
+ #       str = str + ";{}={}".format(key,value)
 
+    # print("{}={};".format(key,value))
     # expire = dateutil.parser.isoparse(json.loads(arg)['Credentials']['Expiration'])
     # local = expire.astimezone(dateutil.tz.gettz())
     # print('echo "Credentials expire {}"'.format(local))
